@@ -2,12 +2,13 @@ from flask_restful import Resource
 import flask
 
 from pymongo import MongoClient
+import confPass
 
-
-client = MongoClient()
+client = MongoClient('mongodb://' + confPass.passw['user'] + ':' + confPass.passw['mongoPass'] + '-123@ds035985.mongolab.com:35985/recruiter')
 db = client.dataBase
-candidates = db.candidates
 
+candidates = db.candidates
+confPass.passw
 
 class Reader(Resource):
     def get(self):
