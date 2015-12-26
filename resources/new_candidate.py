@@ -3,14 +3,15 @@ from flask import request
 from flask_restful import Resource
 import time
 
+import confPass
 from pymongo import MongoClient
 
 
 class NewCandidate(Resource):
     def __init__(self):
-        self.client = MongoClient()
-        self.db = self.client.dataBase
-        self.candidates = self.db.candidates
+        client = MongoClient('mongodb://' + confPass.passw['user'] + ':' + confPass.passw['mongoPass'] + '@ds035985.mongolab.com:35985/recruiter')
+        db = client.recruiter
+        self.candidates = db.candidates
 
     def post(self):
         name, surname = self.__request_fields()
