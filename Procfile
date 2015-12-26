@@ -1,0 +1,1 @@
+web: gunicorn recruiter:app --log-file=-
