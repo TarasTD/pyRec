@@ -20,22 +20,18 @@ function candidatesList() {
         $scope.clear = function() {$scope.message = '';};
         $scope.save  = function() {alert($scope.message);};
         $http.get('/s').then(function(resp) {
-          $scope.users = resp.data;
-          console.log($scope.users);
-    })
-
-        $scope.remove = function(id) {
-
-            $http.post('/remove_candidate', {'id': id}).then(function(resp) {
-                console.log(resp)
-                        $http.get('/s').then(function(resp) {
-          $scope.users = resp.data;
-          console.log($scope.users);
-    })
-
-            })
-        }
-
+        $scope.users = resp.data;
+        console.log($scope.users);
+    });
+      $scope.remove = function(id) {
+        $http.post('/remove_candidate', {'id': id}).then(function(resp) {
+        console.log(resp);
+        $http.get('/s').then(function(resp) {
+        $scope.users = resp.data;
+        console.log($scope.users);
+        });
+      });
+    };
     }
   };
 }

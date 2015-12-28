@@ -21,14 +21,11 @@
   </md-grid-list> -->
 
   <div class='md-padding-lg' layout="row" layout-wrap layout-xs="column" layout-align="center">
-        <md-card ng-repeat="user in users" flex-lg="15" flex-xs="25" flex-sm="25" flex-md="15" style="position:relative">
-          <img ng-src="/img/material_311.png" class="md-card-image " alt="Washed Out">
-          <img src="http://api.skype.com/users/tarasdmytrus/profile/avatar"
-                style="position:absolute; top:10px;border-radius: 50px; padding:5px"
-                flex-lg="45"
-                flex-xs="40"
-                flex-sm="45"
-                flex-md="45">
+        <md-card ng-repeat="user in users" flex="none" style="width:300px; height:230px; position:relative">
+          <img ng-src="/img/material_311.png"  alt="Washed Out" style="width:100%; height:120px;">
+          <!-- <img src="http://api.skype.com/users/tarasdmytrus/profile/avatar" -->
+          <img src="/img/material_555.jpg"
+                style="position:absolute; width:90px; height:90px; top:10px; padding:10px; border-radius:90px">
             <md-card-title-text>
             <span class="md-headline" style="overflow:hidden">{{user.name}}</span>
              <span class="md-subhead" style="overflow:hidden">{{user.surname}}</span>

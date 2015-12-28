@@ -8,8 +8,12 @@ import time
 
 class GetCandidate(Resource):
     def __init__(self):
-        self.client = MongoClient()
-        self.db = self.client.dataBase
+        # self.client = MongoClient()
+        # self.db = self.client.dataBase
+
+        self.client = MongoClient('mongodb://' + confPass.passw['user'] + ':' + confPass.passw['mongoPass'] + '@ds035985.mongolab.com:35985/recruiter')
+        self.db = client.recruiter
+
         self.candidates = self.db.candidates
 
     def get(self, id):
