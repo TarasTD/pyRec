@@ -1,16 +1,13 @@
-from datetime import datetime
 from flask import request
 from flask_restful import Resource
 import time
 
-import confPass
-from pymongo import MongoClient
+import models
 
 
 class NewCandidate(Resource):
     def __init__(self):
-        client = MongoClient('mongodb://' + confPass.passw['user'] + ':' + confPass.passw['mongoPass'] + '@ds035985.mongolab.com:35985/recruiter')
-        db = client.recruiter
+        db = models.init_connection()
         self.candidates = db.candidates
 
     def post(self):

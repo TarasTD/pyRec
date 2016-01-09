@@ -2,14 +2,13 @@ from flask import request
 from flask_restful import Resource
 from bson.objectid import ObjectId
 
-from pymongo import MongoClient
+import models
 
 
 class RemoveCandidate(Resource):
     def __init__(self):
-        self.client = MongoClient()
-        self.db = self.client.dataBase
-        self.candidates = self.db.candidates
+        db = models.init_connection()
+        self.candidates = db.candidates
 
     def post(self):
         self.id = self.__request_fields()

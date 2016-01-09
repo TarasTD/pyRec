@@ -21,7 +21,7 @@ function candidatesList() {
         $scope.save  = function() {alert($scope.message);};
         $http.get('/s').then(function(resp) {
         $scope.users = resp.data;
-        console.log($scope.users);
+        // console.log($scope.users);
     });
       $scope.remove = function(id) {
         $http.post('/remove_candidate', {'id': id}).then(function(resp) {
@@ -32,6 +32,21 @@ function candidatesList() {
         });
       });
     };
+    $scope.checkLength = function(expression){
+      return expression.length > 10 ? true : false;
+    };
+
+    $scope.rotateCard = function(btn){
+        var $card = $(btn).closest('.card-container');
+        // console.log($card);
+        console.log($card.hasClass('hover'))
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+
     }
   };
 }

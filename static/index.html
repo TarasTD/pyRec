@@ -10,6 +10,8 @@
 <script src="bower_components/angular-messages/angular-messages.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+  <link href="bower_components/x_paper_kit_1.2/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+  <link href="bower_components/x_paper_kit_1.2/assets/css/ct-paper.css" rel="stylesheet"/>
 
 <!-- Angular Material Library -->
 <script src="bower_components/angular-material/angular-material.min.js"></script>
@@ -23,110 +25,57 @@
 <script src="app/candidatesList/candidatesList.directive.js"></script>
 <script src="app/candidateView/candidateView.module.js"></script>
 <script src="app/candidateView/candidateView.controller.js"></script>
+<script src="app/navBar/navBar.directive.js"></script>
 
 
+<link href='bower_components/x_rotating_card_v1.3.1/css/bootstrap.css' rel='stylesheet' />
+<link href='bower_components/x_rotating_card_v1.3.1/css/rotating-card.css' rel='stylesheet' />
 
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<style>
+@font-face { font-family: NewTheory; src: url('fonts/NewTheory.ttf'); }
+</style>
+
+<script src="bower_components/x_paper_kit_1.2/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="bower_components/x_paper_kit_1.2/assets/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+<script src="bower_components/x_paper_kit_1.2/bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  Plugins -->
+<script src="bower_components/x_paper_kit_1.2/assets/js/ct-paper-checkbox.js"></script>
+<script src="bower_components/x_paper_kit_1.2/assets/js/ct-paper-radio.js"></script>
+<script src="bower_components/x_paper_kit_1.2/assets/js/bootstrap-select.js"></script>
+<script src="bower_components/x_paper_kit_1.2/assets/js/bootstrap-datepicker.js"></script>
+
+<script src="bower_components/x_paper_kit_1.2/assets/js/ct-paper.js"></script>
+
+<link href="bower_components/x_paper_kit_1.2/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+<link href="bower_components/x_paper_kit_1.2/assets/css/ct-paper.css" rel="stylesheet"/>
+<!-- <link href="bower_components/x_paper_kit_1.2/assets/css/demo.css" rel="stylesheet" /> -->
+<!-- <link href="bower_components/x_paper_kit_1.2/assets/css/examples.css" rel="stylesheet" /> -->
+
+<!--     Fonts and icons     -->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 <!-- <script src="test.js"></script> -->
 
-    <md-toolbar layout="row" >
-      <h1>Recruiter</h1>
-    </md-toolbar>
 
-<head>
-    <title>Recruiter</title>
-</head>
-<div ui-view></div>
-<!-- <body ng-controller="myNoteCtrl"> -->
+<div ui-view style="background-color:#FEFCF5"></div>
 
+<script type="text/javascript">
+    function rotateCard(btn){
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if($card.hasClass('hover')){
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
 
-<!--   <md-grid-list
-        md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="4:3"
-        md-gutter="48px" md-gutter-gt-sm="24px" >
-    <md-grid-tile ng-repeat="user in users"
-                  md-rowspan="{{user.name}}"
-                  md-colspan="{{user.surname}}"
-                  md-colspan-sm="1"
-                  style="background-image: url('/img/material_456.jpg')" >
-      <md-icon md-svg-icon="{{tile.icon}}"></md-icon>
-      <md-grid-tile-footer>
-        <h3>{{user.name}}</h3>
-        <h4>{{user.surname}}</h4>
-            <md-divider></md-divider>
-
-        <h3>Python, Angular, HTML, Django, flask</h3>
-
-      </md-grid-tile-footer>
-    </md-grid-tile>
-  </md-grid-list> -->
-
-<!--   <div class='md-padding-lg' layout="row" layout-wrap layout-xs="column" layout-align="center">
-        <md-card ng-repeat="user in users" flex-lg="15" flex-xs="25" flex-sm="25" flex-md="15" style="position:relative">
-          <img ng-src="/img/material_311.png" class="md-card-image " alt="Washed Out">
-          <img src="/img/material_456.jpg"
-                style="position:absolute; top:10px;border-radius: 50px; padding:5px"
-                flex-lg="45"
-                flex-xs="40"
-                flex-sm="45"
-                flex-md="45">
-            <md-card-title-text>
-            <span class="md-headline" style="overflow:hidden">{{user.name}}</span>
-             <span class="md-subhead" style="overflow:hidden">{{user.surname}}</span>
-            <md-divider></md-divider>
-
-            </md-card-title-text>
-          <md-content layout-align="center" >
-            Python, Angular, HTML, Django, flask
-          </md-content>
-
-          <md-card-actions layout="row" layout-align="center">
-                    <md-button class="md-icon-button" >
-                    <md-icon class="material-icons  md-48" style="color:green"> build </md-icon>
-
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:blue">account_box</i>
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:red">delete</i>
-                    </md-button>
-                </md-card-actions>
-        </md-card>
-</div>
- -->
-
-
-
-<!--   <div class='md-padding' layout="row" layout-wrap layout-xs="column" layout-align="center">
-        <md-card ng-repeat="user in users" flex-lg="15" flex-xs="25" flex-sm="25" flex-md="15" style="position:relative">
-          <img ng-src="/img/material_311.png" class="md-card-image " alt="Washed Out">
-            <md-card-header>
-                <md-card-title style="position:absolute; top: 0; color:black; color:white;background: rgba(34,34,34,0.15);">
-                    <md-card-avatar>
-                      <img class="md-user-avatar" src="/img/material_456.jpg">
-                    </md-card-avatar>
-                  <md-card-title-text>
-                    <span class="md-headline" style="overflow:hidden">{{user.name}} {{user.surname}}</span>
-                    <span class="md-subhead">Python, Angular, HTML, Django, flask</span>
-                  </md-card-title-text>
-                </md-card-title>
-            </md-card-header >
-                <md-card-actions layout="row" layout-align="end center" style="position:absolute; top: 60%; color:black; color:white;">
-                    <md-button class="md-icon-button" >
-                    <md-icon class="material-icons  md-48" style="color:green"> build </md-icon>
-
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:blue">account_box</i>
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:red">delete</i>
-                    </md-button>
-                </md-card-actions>
-          </md-card>
-      </md-content>
-</div>
- -->
+</script>
 
 
 
