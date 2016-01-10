@@ -33,8 +33,11 @@ function candidatesList() {
       });
     };
     $scope.checkLength = function(expression){
-      return expression.length > 10 ? true : false;
+      return expression.length > 15 ? true : false;
     };
+    $scope.print = function(user){
+      console.log(user)
+    }
 
     $scope.rotateCard = function(btn){
         var $card = $(btn).closest('.card-container');

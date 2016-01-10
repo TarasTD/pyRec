@@ -1,56 +1,3 @@
-
-<!--   <md-grid-list
-        md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6"
-        md-row-height-gt-md="1:1" md-row-height="4:3"
-        md-gutter="48px" md-gutter-gt-sm="24px" >
-    <md-grid-tile ng-repeat="user in users"
-                  md-rowspan="{{user.name}}"
-                  md-colspan="{{user.surname}}"
-                  md-colspan-sm="1"
-                  style="background-image: url('/img/material_456.jpg')" >
-      <md-icon md-svg-icon="{{tile.icon}}"></md-icon>
-      <md-grid-tile-footer>
-        <h3>{{user.name}}</h3>
-        <h4>{{user.surname}}</h4>
-            <md-divider></md-divider>
-
-        <h3>Python, Angular, HTML, Django, flask</h3>
-
-      </md-grid-tile-footer>
-    </md-grid-tile>
-  </md-grid-list> -->
-
-<!--   <div class='md-padding-lg' layout="row" layout-wrap layout-xs="column" layout-align="center">
-        <md-card ng-repeat="user in users" flex="none" style="width:300px; height:230px; position:relative">
-          <img ng-src="/img/material_311.png"  alt="Washed Out" style="width:100%; height:120px;">
-          <img src="http://api.skype.com/users/tarasdmytrus/profile/avatar"
-          <img src="/img/material_555.jpg"
-                style="position:absolute; width:90px; height:90px; top:10px; padding:10px; border-radius:90px">
-            <md-card-title-text>
-            <span class="md-headline" style="overflow:hidden;font-family: NewTheory"><strong>{{user.name}}</strong></span>
-             <span class="md-subhead" style="overflow:hidden;font-family: NewTheory"><strong>{{user.surname}}</strong></span>
-            <md-divider></md-divider>
-
-            </md-card-title-text>
-          <md-content layout-align="center" >
-            Python, Angular, HTML, Django, flask
-          </md-content>
-
-          <md-card-actions layout="row" layout-align="center">
-                    <md-button class="md-icon-button" >
-                    <md-icon class="material-icons  md-48" style="color:green"> build </md-icon>
-
-                    </md-button>
-                    <md-button class="md-icon-button" href="#/candidate/{{user._id}}">
-                        <i class="material-icons" style="color:blue">account_box</i>
-                    </md-button>
-                    <md-button class="md-icon-button" ng-click="remove(user._id)">
-                        <i class="material-icons" style="color:red">delete</i>
-                    </md-button>
-                </md-card-actions>
-        </md-card>
-</div>
- -->
 <div class="container section-nude">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
     <div class="col-md-4 col-sm-12 col-lg-3 col-xs-12" ng-repeat="user in users">
@@ -65,17 +12,21 @@
                 </div>
                 <div class="content">
                     <div class="main">
-                        <h6 class="name">{{user.name}}&nbsp;{{user.surname  | limitTo : 9 }}
-                          <span ng-if="checkLength(user.surname)">...<span>
+                        <h6 class="name">{{user.name + " "  + user.surname| limitTo : 16 }}
+                          <span ng-if="checkLength(user.name + user.surname)">...<span>
+<!--                           &nbsp;
+                          <span>{{user.surname  | limitTo : 9 }}</span>
+                          <span ng-if="checkLength(user.surname)">...<span> -->
                         </h6>
                         <!-- <h3 class="name" style="margin-top:0">{{user.surname}}</h3> -->
                         <p class="profession">Product Manager</p>
                         <h5 style="font-size: 14px;"><i class="fa fa-map-marker fa-fw text-muted"></i> Paris, France</h5>
                         <h5 style="font-size: 14px;"><i class="fa fa-building-o fa-fw text-muted"></i> Creative Tim Inc. </h5>
                         <h5 style="font-size: 14px;"><i class="fa fa-envelope-o fa-fw text-muted"></i> inna@creative-tim.com</h5>
+                        <h5><a href="#/candidate/{{user._id}}">View</a></h5>
                     </div>
                     <div class="footer">
-                      <button class="btn btn-simple" onclick="rotateCard(this)">
+                      <button class="btn btn-simple" onclick="rotateCard(this)" ng-click="print(user)">
                           <i class="fa fa-mail-forward"></i> Manual Flip
                       </button>
                     </div>
@@ -108,34 +59,3 @@
     </div>
   </div>
 </div>
-
-<!--   <div class='md-padding' layout="row" layout-wrap layout-xs="column" layout-align="center">
-        <md-card ng-repeat="user in users" flex-lg="15" flex-xs="25" flex-sm="25" flex-md="15" style="position:relative">
-          <img ng-src="/img/material_311.png" class="md-card-image " alt="Washed Out">
-            <md-card-header>
-                <md-card-title style="position:absolute; top: 0; color:black; color:white;background: rgba(34,34,34,0.15);">
-                    <md-card-avatar>
-                      <img class="md-user-avatar" src="/img/material_456.jpg">
-                    </md-card-avatar>
-                  <md-card-title-text>
-                    <span class="md-headline" style="overflow:hidden">{{user.name}} {{user.surname}}</span>
-                    <span class="md-subhead">Python, Angular, HTML, Django, flask</span>
-                  </md-card-title-text>
-                </md-card-title>
-            </md-card-header >
-                <md-card-actions layout="row" layout-align="end center" style="position:absolute; top: 60%; color:black; color:white;">
-                    <md-button class="md-icon-button" >
-                    <md-icon class="material-icons  md-48" style="color:green"> build </md-icon>
-
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:blue">account_box</i>
-                    </md-button>
-                    <md-button class="md-icon-button">
-                        <i class="material-icons" style="color:red">delete</i>
-                    </md-button>
-                </md-card-actions>
-          </md-card>
-      </md-content>
-</div>
- -->
